@@ -1,2 +1,4 @@
 # Big-Number-Linked-List
-Program allows storage of large integers in a LinkedList consisting of a 3-digit integer per node
+Assignment for a Data Structures class
+
+An integer with any number of digits can be represented by storing the integer as a linked list of digits. A more efficient representation will store a larger integer in each node. Design and implement a class for whole number arithmetic in which a number is implemented as a linked list of integers. Each node will hold an integer less than or equal to 999. The number represented is the concatenation of the numbers in the nodes. For example, if there are four nodes with the four integers 23, 7, 999, and 0, then this represents the number 23,007,999,000. Note that the number in a node is always considered to be three digits long (that is, leading zeros are added, if necessary). Also, write the add and subtract methods that read large integers stored in this way and write the result as a similar linked list. Test with integers larger than Integer.MAX_VALUE. 
