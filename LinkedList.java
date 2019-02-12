@@ -65,19 +65,18 @@ public class LinkedList {
     }
     
     //Iterator class
-    class MyIterator implements ListIterator<Node>{
+    class MyIterator {
         private Node current;
         
         //constructor
         public MyIterator() {
-            super();
             current = start;
         }
         
         public Node current() {return current;}
         
         //adds at end of list
-        @Override public void add(Node n) {
+        public void add(Node n) {
             n.next = end;
             n.previous = end.previous;
             end.previous = n;
@@ -93,7 +92,7 @@ public class LinkedList {
             size++;
         }
         
-        @Override public void set(Node n) {current = n;}
+        public void set(Node n) {current = n;}
         
         //sets iterator at beginning of list
         public void first() {current = start.next;}
@@ -102,7 +101,7 @@ public class LinkedList {
         public void last() {current = end.previous;}
         
         //removes current node
-        @Override public void remove() {
+        public void remove() {
             if(current == start || current == end)
                 return;
             
@@ -113,17 +112,17 @@ public class LinkedList {
         }
         
         //moves down the list
-        @Override public Node next() {
+        public Node next() {
             set(current.next);
             return current;
         }
         //moves up the list
-        @Override public Node previous() {
+        public Node previous() {
             set(current.previous);
             return current;
         }
         
-        @Override public boolean hasNext() {
+        public boolean hasNext() {
             if(size <= 1)
                 return false;
             else if(iterator.current.next == null)
@@ -131,7 +130,7 @@ public class LinkedList {
             else
                 return true;
         }
-        @Override public boolean hasPrevious() {
+        public boolean hasPrevious() {
             if(size <= 1)
                 return false;
             else if(iterator.current.previous == null)
@@ -139,10 +138,5 @@ public class LinkedList {
             else
                 return true;
         }
-        
-        //LinkedList is not indexed
-        @Override public int nextIndex() {return -1;}
-        @Override public int previousIndex() {return -1;}
-        
     }
 }
