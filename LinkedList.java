@@ -30,11 +30,18 @@ public class LinkedList {
     public MyIterator getIterator() {return iterator;}
     public int size() {return size;}
     
-    //calls iterator add
-    public void add(int value) {
+    //add to end of list
+    public void addAfter(int value) {
         Node n = new Node();
         n.value = value;
         iterator.add(n);
+    }
+    
+    //add to beginning of list
+    public void addBefore(int value) {
+        Node n = new Node();
+        n.value = value;
+        iterator.addBefore(n);
     }
     
     //Node class
@@ -78,7 +85,21 @@ public class LinkedList {
             size++;
         }
         
+        public void addBefore(Node n) {
+            n.previous = start;
+            n.next = start.next;
+            start.next.previous = n;
+            start.next = n;
+            size++;
+        }
+        
         @Override public void set(Node n) {current = n;}
+        
+        //sets iterator at beginning of list
+        public void first() {current = start.next;}
+        
+        //sets iterator at last element
+        public void last() {current = end.previous;}
         
         //removes current node
         @Override public void remove() {
